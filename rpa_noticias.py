@@ -11,6 +11,7 @@ URI = os.getenv("REDIS_URI") # Isso retorna None se a variável não estiver def
 r = redis.Redis.from_url(URI, decode_responses=True) # Isso falha
 
 
+
 def fix_encoding(text):
     if isinstance(text, bytes):
         try:
