@@ -7,8 +7,8 @@ import os
 
 # Configuração robusta do Redis
 
-URI = os.getenv("REDIS_URI") # Isso retorna None se a variável não estiver definida
-r = redis.Redis.from_url(URI, decode_responses=True) # Isso falha
+URI = os.getenv("REDIS_URI")
+r = redis.Redis.from_url(URI, decode_responses=True) 
 
 
 

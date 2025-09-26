@@ -3,25 +3,26 @@ name: Run Python Script Monthly
 on:
   schedule:
     - cron: "0 12 24 * *"
-  workflow_dispatch:
-
+  workflow_dispatch:  
 
 jobs:
   run:
     runs-on: ubuntu-latest
     
-    # 🚨 Adicione este bloco para definir a variável de ambiente (env)
-    #    usando o Secret que você criou no Passo 1.
     env:
       REDIS_URI: ${{ secrets.REDIS_URI }} 
       
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
+          
       - name: Install dependencies
         run: pip install redis requests beautifulsoup4
+        
       - name: Run script
         run: python rpa_noticias.py
