@@ -23,8 +23,8 @@ jobs:
           
       - name: Install dependencies
         run: |
-          pip install --upgrade pip
-          pip install redis requests beautifulsoup4 lxml
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
           
       - name: Pre-verify and run
         run: |
